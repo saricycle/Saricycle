@@ -1,0 +1,162 @@
+/* Standardized Page Layout Styles */
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  min-height: 100%;
+  width: 100%;
+}
+
+/* Page Header */
+.page-header {
+  width: 100%;
+}
+
+.page-header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.page-title-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--admin-gray-900);
+  margin: 0;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.page-description {
+  font-size: 1.125rem;
+  color: var(--admin-gray-600);
+  margin: var(--spacing-sm) 0 0 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Page Content */
+.page-content {
+  display: flex;
+  gap: var(--spacing-2xl);
+  align-items: start;
+  width: 100%;
+  flex: 1;
+}
+
+.page-content.has-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--spacing-2xl);
+}
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+}
+
+.page-sidebar {
+  width: 350px;
+  flex-shrink: 0;
+  position: sticky;
+  top: var(--spacing-xl);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .page-content.has-sidebar {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+  
+  .page-sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    order: 2;
+  }
+  
+  .page-main {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    gap: var(--spacing-xl);
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .page-description {
+    font-size: 1rem;
+  }
+  
+  .page-header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-lg);
+  }
+  
+  .page-header-actions {
+    justify-content: flex-start;
+  }
+  
+  .page-content {
+    gap: var(--spacing-xl);
+  }
+  
+  .page-main {
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  .page-description {
+    font-size: 0.875rem;
+  }
+  
+  .page-header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .page-content {
+    gap: var(--spacing-lg);
+  }
+  
+  .page-main {
+    gap: var(--spacing-lg);
+  }
+}

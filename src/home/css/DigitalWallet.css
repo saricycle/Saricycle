@@ -1,0 +1,936 @@
+.home-container {
+    --primary-color: #157b54;
+    --primary-dark: #0f5d40;
+    --secondary-color: #147f55;
+    --text-dark: #1a1a1a;
+    --text-gray: #666666;
+    --border-light: #e1e5e9;
+    --background-light: #f8fffe;
+  }
+
+  /* Wallet Statistics Cards */
+  .wallet-stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .wallet-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+  }
+
+  .wallet-stat-icon-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .wallet-stat-card.wallet-stat-primary .wallet-stat-icon-container {
+    background: linear-gradient(135deg, #157b54, #19d788);
+    box-shadow: 0 4px 15px rgba(21, 123, 84, 0.3);
+  }
+
+  .wallet-stat-card.wallet-stat-success .wallet-stat-icon-container {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+  }
+
+  .wallet-stat-card.wallet-stat-warning .wallet-stat-icon-container {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  }
+
+  .wallet-stat-icon {
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
+
+  .wallet-stat-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .wallet-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.25rem 0;
+    line-height: 1;
+  }
+
+  .wallet-stat-title {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .back-button {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--border-light);
+    border-radius: 0.375rem;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 1rem;
+  }
+  
+  .back-button:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+  }
+  
+  .back-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .user-balance {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+  
+  .section-header-with-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .time-filter .filter-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    background: white;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  
+  .no-transactions {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-gray);
+  }
+  
+  .no-transactions-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .no-transactions h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .no-transactions p {
+    margin: 0 0 1.5rem 0;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .no-transactions-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .suggestion-button {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .suggestion-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+
+  .transaction-details {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .detail-badge {
+    padding: 0.125rem 0.5rem;
+    background: rgba(21, 123, 84, 0.1);
+    color: var(--primary-color);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .transaction-amount.earned {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  .transaction-amount.redeemed {
+    color: #f59e0b;
+    font-weight: 600;
+  }
+  
+  .transaction-category {
+    display: flex;
+    align-items: center;
+  }
+  
+  .category-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .category-badge.recycling {
+    background: rgba(21, 123, 84, 0.1);
+    color: var(--primary-color);
+  }
+  
+  .category-badge.redemption {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+
+  .category-badge.learning {
+    background: rgba(147, 197, 253, 0.1);
+    color: #3b82f6;
+  }
+
+  .category-badge.bonus {
+    background: rgba(251, 191, 36, 0.1);
+    color: #d97706;
+  }
+
+  .category-badge.registration {
+    background: rgba(156, 163, 175, 0.1);
+    color: #6b7280;
+  }
+  
+  .chart-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+  
+  .chart-card, .achievement-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px var(--shadow-light);
+  }
+  
+  .chart-header, .achievement-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  .chart-header h4, .achievement-header h4 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  .chart-bar {
+    height: 60px;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .bar-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .bar-section.earned {
+    background: linear-gradient(90deg, #19d788 0%, #147f55 100%);
+  }
+  
+  .bar-section.redeemed {
+    background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+  }
+  
+  .chart-legend {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .legend-color.earned {
+    background: var(--primary-color);
+  }
+  
+  .legend-color.redeemed {
+    background: #f59e0b;
+  }
+  
+  .achievement-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .achievement-count {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .achievement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--background-light);
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .achievement-item.unlocked {
+    border-color: var(--primary-color);
+    background: rgba(21, 123, 84, 0.05);
+  }
+
+  .achievement-item.locked {
+    opacity: 0.7;
+  }
+
+  .achievement-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .achievement-status-icon {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .achievement-status-icon.unlocked {
+    color: #22c55e;
+  }
+
+  .achievement-status-icon.locked {
+    color: #6b7280;
+  }
+  
+  .achievement-star {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+  }
+
+  .achievement-item.locked .achievement-star {
+    color: #9ca3af;
+  }
+  
+  .achievement-text {
+    flex: 1;
+  }
+
+  .achievement-text h5 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .achievement-item.locked .achievement-text h5 {
+    color: #6b7280;
+  }
+  
+  .achievement-text p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-gray);
+  }
+
+  .achievement-item.locked .achievement-text p {
+    color: #9ca3af;
+  }
+
+  .achievement-progress {
+    margin-top: 0.5rem;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .progress-text {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    font-weight: 500;
+  }
+
+  .unlocked-date {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  .no-achievements {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-gray);
+  }
+
+  .no-achievements-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .no-achievements p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .achievement-show-more {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .show-more-btn {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .show-more-btn:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-light);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loading-container span {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    margin-top: 0.5rem;
+  }
+
+  .error-content {
+    max-width: 400px;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .error-content h3 {
+    margin: 0 0 1rem 0;
+    color: #dc2626;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .error-content p {
+    margin: 0 0 1.5rem 0;
+    color: var(--text-gray);
+    line-height: 1.5;
+  }
+
+  .retry-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .retry-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Receipt Modal Styles */
+  .activity-item.clickable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .activity-item.clickable:hover {
+    transform: translateX(4px);
+    background: rgba(21, 123, 84, 0.05);
+  }
+
+  .receipt-icon {
+    margin-left: 0.5rem;
+    color: var(--text-gray);
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .activity-item.clickable:hover .receipt-icon {
+    opacity: 1;
+  }
+
+  .receipt-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem;
+  }
+
+  .receipt-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .receipt-modal-content {
+    background: white;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+
+  .receipt-modal-overlay.active .receipt-modal-content {
+    transform: scale(1);
+  }
+
+  .receipt-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1;
+  }
+
+  .receipt-modal-close:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+  }
+
+  .receipt-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .receipt-header .receipt-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .receipt-header .receipt-icon.success {
+    background: rgba(34, 197, 94, 0.2);
+  }
+
+  .receipt-header .receipt-icon.warning {
+    background: rgba(245, 158, 11, 0.2);
+  }
+
+  .receipt-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .receipt-id {
+    margin: 0;
+    font-size: 0.875rem;
+    opacity: 0.9;
+    font-family: monospace;
+  }
+
+  .receipt-body {
+    padding: 0;
+  }
+
+  .receipt-summary {
+    background: linear-gradient(135deg, rgba(21, 123, 84, 0.05), rgba(25, 215, 136, 0.05));
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .receipt-summary-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .summary-label {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  .summary-value {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    font-weight: 700;
+  }
+
+  .receipt-summary-amount {
+    flex-shrink: 0;
+  }
+
+  .amount-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .amount-badge.positive {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  }
+
+  .amount-badge.negative {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  }
+
+  .receipt-details {
+    padding: 1.5rem 2rem;
+  }
+
+  .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--border-light);
+    gap: 1.5rem;
+  }
+
+  .receipt-row:last-child {
+    border-bottom: none;
+  }
+
+  .receipt-label {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 140px;
+  }
+
+  .receipt-value {
+    font-size: 0.9375rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    text-align: right;
+    flex: 1;
+    word-break: break-word;
+  }
+
+  .receipt-value.earned {
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+
+  .receipt-value.redeemed {
+    color: #f59e0b;
+    font-weight: 700;
+  }
+
+  .receipt-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+    margin: 0;
+  }
+
+  .receipt-section-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .receipt-footer {
+    background: var(--background-light);
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 1rem 1rem;
+    border-top: 2px dashed var(--border-light);
+  }
+
+  .receipt-footer-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .receipt-footer-content svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+  }
+
+  .receipt-note {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.9375rem;
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+
+  .receipt-timestamp {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 768px) {
+    .chart-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-header-with-filter {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    
+    .chart-bar {
+      height: 40px;
+    }
+    
+    .bar-section {
+      font-size: 0.75rem;
+    }
+
+    .wallet-stat-card {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .wallet-stat-icon-container {
+      width: 50px;
+      height: 50px;
+    }
+
+    .wallet-stat-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .wallet-stat-value {
+      font-size: 1.5rem;
+    }
+
+    .wallet-stat-title {
+      font-size: 0.8125rem;
+    }
+
+    .receipt-modal-content {
+      max-width: 95%;
+      max-height: 85vh;
+    }
+
+    .receipt-header {
+      padding: 1.5rem;
+    }
+
+    .receipt-summary {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .receipt-summary-amount {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .amount-badge {
+      font-size: 1.125rem;
+      padding: 0.5rem 1.25rem;
+    }
+
+    .receipt-details {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .receipt-footer {
+      padding: 1rem 1.5rem;
+    }
+
+    .receipt-footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .receipt-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .receipt-label {
+      min-width: auto;
+    }
+
+    .receipt-value {
+      text-align: left;
+    }
+  }

@@ -1,0 +1,326 @@
+/* Home Navbar */
+:root {
+  --le-green: #157b54;
+  --le-green-dark: #147f55;
+  --le-green-light: #157b54;
+  --le-green-lighter: #157b54;
+  --le-green-black: #202d16;
+  --le-white: #ffffff;
+  --le-yellow: #edfe44;
+  --le-black: #1a1a1a;
+  --le-red: #dc2626;
+  --le-red-light: #fef2f2;
+  --le-red-dark: #b91c1c;
+  --le-cream: #faf4e4;
+
+  /* EXTRAS */
+  --plantora-mint: #9FF1C6;
+  --plantora-dark-green: #084140;
+  --plantora-dark: #1D1D1B;
+
+  /* ENCHANTED FOREST PALLETE */
+  --g1:#134611;
+  --g2:#3e8914;
+  --g3:#3da35d;
+  --g4:#96e072;
+  --g5:#e8fccf;
+  
+  --gradient-ep: linear-gradient(135deg, var(--g1) 0%, var(--g2) 100%);
+  --gradient-ep-2: linear-gradient(135deg, var(--g3) 0%, var(--g4) 100%);
+}
+
+.home-navbar {
+  background: var(--gradient-ep);
+  position: fixed;
+  top: 0; 
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: var(--gradient-ep);
+}
+
+.home-navbar-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand */
+.home-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.10rem;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--le-white);
+  text-decoration: none;
+}
+
+.home-brand-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: invert(100%);
+}
+
+.home-brand-text {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+/* Desktop Navigation */
+.home-navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--le-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.home-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--plantora-mint);
+  transition: width 0.2s ease;
+}
+
+.home-nav-link:hover {
+  color: var(--le-white);
+  background: transparent !important;
+}
+
+.home-nav-link:hover::after {
+  width: 80%;
+}
+
+.home-nav-link.active {
+  color: var(--le-white);
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.home-nav-link.active::after {
+  width: 80%;
+}
+
+/* Logout Button Styles */
+.home-nav-link.home-logout-button {
+  background: transparent;
+  border: 1px solid var(--le-white);
+  color: var(--le-white);
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.home-nav-link.home-logout-button::after {
+  display: none;
+}
+
+.home-nav-link.home-logout-button:hover {
+  background: var(--le-white);
+  color: var(--plantora-mint);
+  border-color: var(--plantora-mint);
+}
+
+/* Mobile menu button */
+.home-mobile-menu-button {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--le-white);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.home-mobile-menu-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--plantora-mint);
+}
+
+/* Mobile Navigation */
+.home-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--plantora-dark-green);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.home-mobile-nav-open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.home-mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  color: var(--le-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  position: relative;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.home-mobile-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: var(--plantora-mint);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: left;
+}
+
+.home-mobile-nav-link:hover {
+  color: var(--le-white);
+  background: transparent !important;
+}
+
+.home-mobile-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.home-mobile-nav-link.active {
+  color: var(--le-white);
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.home-mobile-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.home-mobile-nav-link.home-logout-button {
+  background: transparent;
+  border: 1px solid var(--le-white);
+  color: var(--le-white);
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.home-mobile-nav-link.home-logout-button::after {
+  display: none;
+}
+
+.home-mobile-nav-link.home-logout-button:hover {
+  background: var(--le-white);
+  color: var(--le-white);
+  border-color: var(--le-white);
+}
+
+.home-brand-icon-image { 
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  color: var(--le-white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-navbar {
+    height: 70px;
+  }
+  
+  .home-navbar-container {
+    padding: 0 1.5rem;
+  }
+  
+  .home-brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .home-brand-text {
+    font-size: 1.25rem;
+  }
+  
+  .home-navbar-nav {
+    display: none;
+  }
+  
+  .home-mobile-menu-button {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-navbar {
+    height: 65px;
+  }
+  
+  .home-navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .home-brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .home-brand-text {
+    font-size: 1.125rem;
+  }
+  
+  .home-mobile-nav {
+    padding: 1rem;
+  }
+  
+  .mobile-profile-section {
+    padding: 1rem 0 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+  }
+} 
